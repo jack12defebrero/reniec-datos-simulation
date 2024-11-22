@@ -1,0 +1,12 @@
+.custom-image {
+    width: 100%;
+    max-height: 900px;
+    border-radius:2rem ;
+    object-fit: cover;
+    z-index: 0;
+    -webkit-border-radius:2rem ;
+    -moz-border-radius:2rem ;
+    -ms-border-radius:2rem ;
+    -o-border-radius:2rem ;
+}
+  

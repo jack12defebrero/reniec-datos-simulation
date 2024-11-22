@@ -34,7 +34,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="p-mb-3">
+    <div className=" fixed top-0 left-0 w-full z-50">
       <Menubar model={items} start={start} />
     </div>
   );
