@@ -12,7 +12,7 @@ const Register = () => {
 
   const handleRegister = () => {
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('Las contraseñas no coinciden');
       return;
     }
 
@@ -21,7 +21,7 @@ const Register = () => {
 
     // Validar si el correo ya existe
     if (existingUsers.some((user) => user.email === email)) {
-      setError('Email already exists');
+      setError('El correo electrónico ya existe');
       return;
     }
 
@@ -38,51 +38,51 @@ const Register = () => {
     setPassword('');
     setConfirmPassword('');
     setError('');
-    alert('User registered successfully!');
+    alert('¡Usuario registrado exitosamente!');
   };
 
   return (
     <div className="flex align-items-center justify-content-center min-h-screen bg-gray-100">
       <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
         <div className="text-center mb-5">
-          <div className="text-900 text-3xl font-medium mb-3">Create an Account</div>
-          <span className="text-600 font-medium line-height-3">Already have an account?</span>
-          <a href="/" className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Log in here!</a>
+          <div className="text-900 text-3xl font-medium mb-3">Crear una cuenta</div>
+          <span className="text-600 font-medium line-height-3">¿Ya tienes una cuenta?</span>
+          <a href="/" className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">¡Inicia sesión aquí!</a>
         </div>
 
         <div>
           {error && <div className="text-red-600 font-medium mb-3">{error}</div>}
 
           <label htmlFor="username" className="block text-900 font-medium mb-2">
-            Username
+            Nombre de usuario
           </label>
           <InputText
             id="username"
             type="text"
-            placeholder="Username"
+            placeholder="Nombre de usuario"
             className="w-full mb-3"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
 
           <label htmlFor="email" className="block text-900 font-medium mb-2">
-            Email
+            Correo electrónico
           </label>
           <InputText
             id="email"
             type="text"
-            placeholder="Email address"
+            placeholder="Correo electrónico"
             className="w-full mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <label htmlFor="password" className="block text-900 font-medium mb-2">
-            Password
+            Contraseña
           </label>
           <Password
             id="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             className="w-full mb-3"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -90,18 +90,18 @@ const Register = () => {
           />
 
           <label htmlFor="confirmPassword" className="block text-900 font-medium mb-2">
-            Confirm Password
+            Confirmar contraseña
           </label>
           <Password
             id="confirmPassword"
-            placeholder="Confirm Password"
+            placeholder="Confirmar contraseña"
             className="w-full mb-3"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             feedback={false}
           />
 
-          <Button label="Register" icon="pi pi-user-plus" className="w-full" onClick={handleRegister} />
+          <Button label="Registrarse" icon="pi pi-user-plus" className="w-full" onClick={handleRegister} />
         </div>
       </div>
     </div>
