@@ -24,39 +24,39 @@ const Login = ({ onLogin }) => {
       <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
         <div className="text-center mb-5">
           <img
-            src="https://primefaces.org/cdn/primereact/images/blocks/logos/hyper.svg"
-            alt="hyper"
+            src="https://www.reniec.gob.pe/portal/images/logo_escudo.gif" style={{ width: '150px', marginRight: '40px' }}
+            alt="Reniec"
             height={50}
             className="mb-3"
           />
-          <div className="text-900 text-3xl font-medium mb-3">Welcome Back</div>
-          <span className="text-600 font-medium line-height-3">Don't have an account?</span>
+          <div className="text-900 text-3xl font-medium mb-3">Bienvenido al sistema de la RENIEC</div>
+          <span className="text-600 font-medium line-height-3">¿No tienes una cuenta? </span>
           {/* Agrega el enlace al registro */}
           <Link to="/register" className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
-            Create today!
+            ¡Creala hoy!
           </Link>
         </div>
 
         <div>
           <label htmlFor="email" className="block text-900 font-medium mb-2">
-            Email
+            Correo electrónico
           </label>
           <InputText
             id="email"
             type="text"
-            placeholder="Email address"
+            placeholder="Correo electrónico"
             className="w-full mb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
           <label htmlFor="password" className="block text-900 font-medium mb-2">
-            Password
+            Contraseña
           </label>
           <InputText
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             className="w-full mb-3"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -70,14 +70,14 @@ const Login = ({ onLogin }) => {
                 checked={checked}
                 className="mr-2"
               />
-              <label htmlFor="rememberme">Remember me</label>
+              <label htmlFor="rememberme">Recuerdame</label>
             </div>
             <a className="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">
-              Forgot your password?
+             Olvidaste tu contraseña?
             </a>
           </div>
 
-          <Button label="Sign In" icon="pi pi-user" className="w-full" onClick={handleSignIn} />
+          <Button label="Inciar Sesión" icon="pi pi-user" className="w-full" onClick={handleSignIn} />
 
           <p>correo: admin@example.com</p>
           <p>contraseña: password123</p>
