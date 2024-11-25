@@ -48,7 +48,7 @@ const Home = () => {
         </div>
         <div className="col-12 md:col-6 overflow-hidden">
           <img
-            src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg"
+            src="https://www.reniec.gob.pe/portal/images/salaPrensa/noticias/notaprensa/NP-613-2015.jpg"
             alt="hero-1"
             className="  pt-4 custom-image md:ml-auto block md:h-full"
           />
