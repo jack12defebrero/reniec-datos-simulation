@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Checkbox } from 'primereact/checkbox';
-import { showSuccessAlert, showErrorAlert, showIntroAlert } from './alerts'; // Importa la nueva función
+import { showSuccessAlert, showErrorAlert, showIntroAlert } from './alerts'; // Importa las funciones necesarias
+import { isValidEmail } from './alerts'; // Importa la validación del correo
 import { Link } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
@@ -19,6 +20,12 @@ const Login = ({ onLogin }) => {
     // Verifica si los campos están vacíos
     if (!email.trim() || !password.trim()) {
       showErrorAlert('Campos vacíos', 'Por favor, rellena todos los campos antes de continuar.');
+      return;
+    }
+
+    // Valida el formato del correo electrónico
+    if (!isValidEmail(email)) {
+      showErrorAlert('Correo inválido', 'Por favor, ingresa un correo electrónico válido.');
       return;
     }
 
@@ -46,7 +53,7 @@ const Login = ({ onLogin }) => {
           <div className="text-900 text-3xl font-medium mb-3">Bienvenido al sistema de la RENIEC</div>
           <span className="text-600 font-medium line-height-3">¿No tienes una cuenta? </span>
           <Link to="/register" className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
-            ¡Creala hoy!
+            ¡Crea una hoy!
           </Link>
         </div>
 

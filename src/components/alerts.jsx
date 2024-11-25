@@ -1,7 +1,17 @@
 import Swal from 'sweetalert2';
+
 /**
- * Muestra una alerta introductoria.
+ * Valida si un correo electrónico tiene un formato válido.
+ * @param {string} email - Correo electrónico a validar.
+ * @returns {boolean} - `true` si es válido, `false` en caso contrario.
  */
+export const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+  
+
+
 export const showIntroAlert = () => {
     Swal.fire({
       title: 'Bienvenido al sistema de la RENIEC',
@@ -20,7 +30,7 @@ export const showIntroAlert = () => {
       }
     });
   };
-  
+
 // Alerta de éxito personalizada
 export const showSuccessAlert = (title, text) => {
   Swal.fire({
