@@ -6,7 +6,7 @@ import { Button } from 'primereact/button';
 import { Tag } from 'primereact/tag';
 import ParentInfoTable from './ParentInfoTable'; // Componente adicional
 
-// Generar nombres aleatorios para los hijos
+// Función para generar nombres aleatorios para los hijos
 const generateRandomName = () => {
   const firstNames = ['Juanito', 'María', 'Carlosito', 'Anita', 'Luisito', 'Pedrito', 'Sofía', 'Gabriela'];
   const lastNames = ['Pérez', 'Gómez', 'Rodríguez', 'Hernández', 'López', 'Martínez'];
@@ -15,7 +15,7 @@ const generateRandomName = () => {
   return `${firstName} ${lastName}`;
 };
 
-// Generar edades aleatorias
+// Función para generar edades aleatorias
 const generateRandomAge = () => {
   const birthYear = Math.floor(Math.random() * (2023 - 2005 + 1)) + 2005;
   return birthYear;
@@ -78,32 +78,43 @@ const ChildList = () => {
       checked={child.renovarDNI}
       onChange={(e) => handleCheckboxChange(e, child.id)}
       disabled={child.age >= 18}
+      className="p-checkbox-sm"
     />
   );
 
   const getStatusSeverity = (child) => (child.age < 18 ? 'success' : 'warning');
 
   const listItem = (child) => (
-    <div className="col-12">
-      <div className="flex align-items-center p-4 border-round shadow-2 surface-card">
+    <div className="col-12 md:col-6 xl:col-4">
+      <div className="flex align-items-center p-4 border-round shadow-2 surface-card hover:shadow-xl transition-shadow duration-300">
         <div className="flex flex-column align-items-start gap-2 flex-1">
-          <img src={child.imageUrl} alt={child.name} className="border-round" style={{ width: '80px', height: '80px', objectFit: 'cover' }} />
-          <h4>{child.name}</h4>
+          <img
+            src={child.imageUrl}
+            alt={child.name}
+            className="border-round"
+            style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+          />
+          <h4 className="text-xl font-semibold">{child.name}</h4>
           <Tag value={child.age < 18 ? 'Menor de Edad' : 'Mayor de Edad'} severity={getStatusSeverity(child)} />
-          <span>Año de Nacimiento: {child.birthYear}</span>
+          <span className="text-sm text-gray-600">Año de Nacimiento: {child.birthYear}</span>
         </div>
-        <div>{renovarDNICheckboxTemplate(child)}</div>
+        <div className="ml-4">{renovarDNICheckboxTemplate(child)}</div>
       </div>
     </div>
   );
 
   const gridItem = (child) => (
     <div className="col-12 sm:col-6 lg:col-4">
-      <div className="p-4 border-round shadow-2 surface-card flex flex-column align-items-center gap-3">
-        <img src={child.imageUrl} alt={child.name} className="border-round" style={{ width: '150px', height: '150px', objectFit: 'cover' }} />
-        <h4>{child.name}</h4>
+      <div className="p-4 border-round shadow-2 surface-card flex flex-column align-items-center gap-3 hover:shadow-xl transition-shadow duration-300">
+        <img
+          src={child.imageUrl}
+          alt={child.name}
+          className="border-round"
+          style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+        />
+        <h4 className="text-lg font-semibold">{child.name}</h4>
         <Tag value={child.age < 18 ? 'Menor de Edad' : 'Mayor de Edad'} severity={getStatusSeverity(child)} />
-        <span>Año de Nacimiento: {child.birthYear}</span>
+        <span className="text-sm text-gray-600">Año de Nacimiento: {child.birthYear}</span>
         {renovarDNICheckboxTemplate(child)}
       </div>
     </div>
@@ -124,12 +135,22 @@ const ChildList = () => {
     <div className="p-mt-5">
       <ParentInfoTable />
       <div className="p-d-flex p-ai-center p-jc-between">
-        <h1>Lista de Hijos</h1>
-        <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
+        <h1 className=" mt-2 text-3xl font-semibold text-center text-gray-800 mb-6">Lista de Hijos</h1>
+        <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} className="p-d-flex p-ai-center   text-center text-gray-800 mb-4" />
       </div>
-      <DataView value={children} itemTemplate={(child) => itemTemplate(child, layout)} layout={layout} className="p-mt-3" />
-      <div className="p-mt-4">
-        <Button label="Renovar DNI (Seleccionados)" icon="pi pi-refresh" onClick={handleRenewDNI} />
+      <DataView
+        value={children}
+        itemTemplate={(child) => itemTemplate(child, layout)}
+        layout={layout}
+        className="p-mt-3"
+      />
+      <div className="p-mt-4 flex justify-center">
+        <Button
+          label="Renovar DNI (Seleccionados)"
+          icon="pi pi-refresh"
+          onClick={handleRenewDNI}
+          className="p-button-rounded p-button-info p-button-lg"
+        />
       </div>
     </div>
   );

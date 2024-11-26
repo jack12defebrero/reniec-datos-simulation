@@ -55,23 +55,25 @@ const ParentInfoTable = () => {
     navigate('/children', { state: { childrenCount: motherDetails.childrenCount } });
   };
 
-  if (!motherDetails) return <p>Cargando...</p>;
+  if (!motherDetails) return <p className="text-center text-xl">Cargando...</p>;
 
   return (
-    <div className="p-mt-5">
-      <h2>Detalles de la Madre</h2>
-      <DataTable value={[motherDetails]} stripedRows responsiveLayout="scroll">
-        <Column field="fullName" header="Nombre Completo" />
-        <Column field="dni" header="DNI" />
-        <Column field="birthDate" header="Fecha de Nacimiento" />
-        <Column field="age" header="Edad" />
-        <Column field="birthPlace" header="Lugar de Nacimiento" />
-        <Column field="livingPlace" header="Lugar de Vivienda" />
-        <Column field="childrenCount" header="Cantidad de Hijos" />
-        <Column field="spouse" header="Esposo/a" />
+    <div className="p-6 bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100 rounded-lg shadow-lg w-full max-w-4xl mx-auto">
+      <h2 className=" mt-7 text-3xl font-semibold text-center text-gray-800 mb-6">Detalles de la Madre</h2>
+      <DataTable value={[motherDetails]} stripedRows responsiveLayout="scroll" className="p-shadow-2">
+        <Column field="fullName" header="Nombre Completo" className="text-sm font-medium text-gray-800" />
+        <Column field="dni" header="DNI" className="text-sm font-medium text-gray-800" />
+        <Column field="birthDate" header="Fecha de Nacimiento" className="text-sm font-medium text-gray-800" />
+        <Column field="age" header="Edad" className="text-sm font-medium text-gray-800" />
+        <Column field="birthPlace" header="Lugar de Nacimiento" className="text-sm font-medium text-gray-800" />
+        <Column field="livingPlace" header="Lugar de Vivienda" className="text-sm font-medium text-gray-800" />
+        <Column field="childrenCount" header="Cantidad de Hijos" className="text-sm font-medium text-gray-800" />
+        <Column field="spouse" header="Esposo/a" className="text-sm font-medium text-gray-800" />
       </DataTable>
 
-      <Button label="Ver Hijos" className="p-mt-3" onClick={goToChildList} />
+      <div className="flex justify-center mt-5">
+        <Button label="Ver Hijos" icon="pi pi-arrow-right" className="p-button-rounded p-button-info p-button-lg" onClick={goToChildList} />
+      </div>
     </div>
   );
 };
